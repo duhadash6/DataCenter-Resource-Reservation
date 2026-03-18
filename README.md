@@ -60,26 +60,55 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Description
 Plateforme web développée sous Laravel pour la gestion, la réservation et la supervision des ressources d'un datacenter (serveurs, réseaux, stockage, etc.). Elle intègre un espace multi-rôles sécurisé adapté aux besoins des utilisateurs, des responsables, des ingénieurs et des administrateurs.
 
-Fonctionnalités
-FonctionnalitéDescriptionCarte mondiale interactiveVisualisation D3.js des datacenters dans le mondeCatalogue de ressourcesConsultation en temps réel des ressources disponiblesRéservation en ligneSystème de demandes avec workflow de validationMulti-rôlesUtilisateur, Responsable, Ingénieur, AdministrateurDashboard analytiqueStatistiques, graphiques et rapports mensuels PDFRack MapVisualisation interactive des baies serveurNotificationsSystème de notifications en temps réelAuthentification sécuriséeLogin, réinitialisation de mot de passe, Magic LinkChatbot intégréAssistant virtuel de navigationMode sombre / clairThème adaptatif completQR CodeGénération de QR codes pour chaque ressourceCommand PaletteRecherche rapide inspirée de VSCode
+# DataCenter Resource Reservation
 
-Stack technique
+> Université Abdelmalek Essaadi — Faculté des Sciences et Techniques de Tanger
+> Licence IDAI | Développement Web | 2025–2026
 
-Backend : Laravel
-Frontend : Blade, CSS, JavaScript
-Base de données : MySQL
-Librairies clés :
+---
 
-D3.js et TopoJSON — Cartographie interactive
-Laravel DomPDF — Génération de rapports PDF
-Simple QrCode — Génération de QR codes
-Laravel Sanctum — Authentification par token API
+## Description
 
+Plateforme web développée sous Laravel pour la gestion, la réservation et la supervision des ressources d'un datacenter (serveurs, réseaux, stockage, etc.). Elle intègre un espace multi-rôles sécurisé adapté aux besoins des utilisateurs, des responsables, des ingénieurs et des administrateurs.
 
+---
 
+## Fonctionnalités
 
-Installation
-bash# 1. Cloner le projet
+| Fonctionnalité | Description |
+|---|---|
+| Carte mondiale interactive | Visualisation D3.js des datacenters dans le monde |
+| Catalogue de ressources | Consultation en temps réel des ressources disponibles |
+| Réservation en ligne | Système de demandes avec workflow de validation |
+| Multi-rôles | Utilisateur, Responsable, Ingénieur, Administrateur |
+| Dashboard analytique | Statistiques, graphiques et rapports mensuels PDF |
+| Rack Map | Visualisation interactive des baies serveur |
+| Notifications | Système de notifications en temps réel |
+| Authentification sécurisée | Login, réinitialisation de mot de passe, Magic Link |
+| Chatbot intégré | Assistant virtuel de navigation |
+| Mode sombre / clair | Thème adaptatif complet |
+| QR Code | Génération de QR codes pour chaque ressource |
+| Command Palette | Recherche rapide inspirée de VSCode |
+
+---
+
+## Stack technique
+
+- **Backend** : Laravel (PHP)
+- **Frontend** : Blade, CSS Vanilla, JavaScript
+- **Base de données** : MySQL
+- **Librairies clés** :
+  - D3.js et TopoJSON — Cartographie interactive
+  - Laravel DomPDF — Génération de rapports PDF
+  - Simple QrCode — Génération de QR codes
+  - Laravel Sanctum — Authentification par token API
+
+---
+
+## Installation
+
+```bash
+# 1. Cloner le projet
 git clone https://github.com/s-elbourmaki/datacenter-resource-reservation.git
 cd datacenter-resource-reservation
 
@@ -108,9 +137,12 @@ npm run build
 php artisan serve
 ```
 
+> **Windows** : vous pouvez aussi exécuter `setup.bat` pour une installation automatique.
+> **Linux / macOS** : utilisez `bash setup.sh`.
+
 ---
 
-**Rôles et accès**
+## Rôles et accès
 
 | Rôle | Accès |
 |---|---|
@@ -121,31 +153,34 @@ php artisan serve
 
 ---
 
+## Structure du projet
+
+```
 datacenter-resource-reservation/
 │
 ├── app/
-│   ├── Models/                              <- User, Resource, Reservation, ActivityLog
+│   ├── Models/                         <- User, Resource, Reservation, ActivityLog
 │   ├── Http/
-│   │   ├── Controllers/                     <- Auth, Resource, Reservation, Admin
-│   │   ├── Requests/                        <- Validation des formulaires
-│   │   └── Middleware/                      <- IsAdmin, authentification
-│   └── Services/                            <- ReservationConflictService, ActivityLogService
+│   │   ├── Controllers/                <- Auth, Resource, Reservation, Admin
+│   │   ├── Requests/                   <- Validation des formulaires
+│   │   └── Middleware/                 <- IsAdmin, authentification
+│   └── Services/                       <- ReservationConflictService, ActivityLogService
 │
 ├── database/
-│   ├── migrations/                          <- Schéma de la base de données
-│   └── seeders/                             <- Données de test
+│   ├── migrations/                     <- Schéma de la base de données
+│   └── seeders/                        <- Données de test
 │
 ├── resources/
-│   ├── css/                                 <- Styles par module (Vanilla CSS)
-│   ├── js/                                  <- Scripts (D3.js, chatbot, dashboard...)
-│   └── views/                               <- Templates Blade
+│   ├── css/                            <- Styles par module (Vanilla CSS)
+│   ├── js/                             <- Scripts (D3.js, chatbot, dashboard...)
+│   └── views/                          <- Templates Blade
 │
 ├── routes/
-│   └── web.php                              <- Toutes les routes de l'application
+│   └── web.php                         <- Toutes les routes de l'application
 │
-├── public/                                  <- Point d'entrée (index.php)
-├── storage/                                 <- Logs, cache, sessions
-├── tests/                                   <- Tests unitaires et fonctionnels
+├── public/                             <- Point d'entrée (index.php)
+├── storage/                            <- Logs, cache, sessions
+├── tests/                              <- Tests unitaires et fonctionnels
 ├── bootstrap/
 ├── config/
 │
@@ -154,11 +189,14 @@ datacenter-resource-reservation/
 ├── package.json
 ├── vite.config.js
 ├── .env.example
-├── setup.bat                                <- Installation automatique Windows
-├── setup.sh                                 <- Installation automatique Linux/macOS
+├── setup.bat                           <- Installation automatique Windows
+├── setup.sh                            <- Installation automatique Linux/macOS
 ├── BACKEND_DOCUMENTATION.md
 ├── AUTH_SETUP.md
 └── README.md
+```
+
+---
 
 ## Contribution
 
@@ -167,14 +205,29 @@ Les contributions sont les bienvenues. Pour proposer une amélioration :
 1. Forkez le projet
 2. Créez votre branche
 ```bash
-   git checkout -b feature/MonAmelioration
+git checkout -b feature/MonAmelioration
 ```
 3. Commitez vos changements
 ```bash
-   git commit -m "Ajout: MonAmelioration"
+git commit -m "Ajout: MonAmelioration"
 ```
 4. Pushez vers la branche
 ```bash
-   git push origin feature/MonAmelioration
+git push origin feature/MonAmelioration
 ```
 5. Ouvrez une Pull Request
+
+---
+
+## Auteurs
+
+Projet réalisé par :
+
+- ZIOUANI Doha
+
+Encadré par **Prof. Yasyn EL YUSUFI** et **Prof. M'hamed AIT KBIR**
+
+---
+
+*Université Abdelmalek Essaadi — Faculté des Sciences et Techniques de Tanger — 2025/2026*
+
