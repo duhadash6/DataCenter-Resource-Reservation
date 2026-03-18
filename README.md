@@ -121,29 +121,60 @@ php artisan serve
 
 ---
 
-**Structure du projet**
-```
+datacenter-resource-reservation/
+│
 ├── app/
-│   ├── Http/Controllers/   # Contrôleurs (Auth, Admin, Resource, Reservation...)
-│   └── Models/             # Modèles Eloquent
+│   ├── Models/                              <- User, Resource, Reservation, ActivityLog
+│   ├── Http/
+│   │   ├── Controllers/                     <- Auth, Resource, Reservation, Admin
+│   │   ├── Requests/                        <- Validation des formulaires
+│   │   └── Middleware/                      <- IsAdmin, authentification
+│   └── Services/                            <- ReservationConflictService, ActivityLogService
+│
 ├── database/
-│   ├── migrations/         # Schéma de base de données
-│   └── seeders/            # Données de test
+│   ├── migrations/                          <- Schéma de la base de données
+│   └── seeders/                             <- Données de test
+│
 ├── resources/
-│   ├── css/                # Styles par module
-│   ├── js/                 # Scripts par module (D3, chatbot, dashboard...)
-│   └── views/              # Templates Blade
+│   ├── css/                                 <- Styles par module (Vanilla CSS)
+│   ├── js/                                  <- Scripts (D3.js, chatbot, dashboard...)
+│   └── views/                               <- Templates Blade
+│
 ├── routes/
-│   └── web.php             # Toutes les routes de l'application
-└── public/
-    ├── images/             # Assets médias
-    └── build/              # Assets compilés (Vite)
+│   └── web.php                              <- Toutes les routes de l'application
+│
+├── public/                                  <- Point d'entrée (index.php)
+├── storage/                                 <- Logs, cache, sessions
+├── tests/                                   <- Tests unitaires et fonctionnels
+├── bootstrap/
+├── config/
+│
+├── artisan
+├── composer.json
+├── package.json
+├── vite.config.js
+├── .env.example
+├── setup.bat                                <- Installation automatique Windows
+├── setup.sh                                 <- Installation automatique Linux/macOS
+├── BACKEND_DOCUMENTATION.md
+├── AUTH_SETUP.md
+└── README.md
 
 ## Contribution
+
 Les contributions sont les bienvenues. Pour proposer une amélioration :
 
-** Forkez le projet **
-** Créez votre branche : git checkout -b feature/MonAmelioration **
-** Commitez vos changements : git commit -m ' Ajout: MonAmelioration ' **
-** Pushez vers la branche : git push origin feature/MonAmelioration **
-** Ouvrez une Pull Request **
+1. Forkez le projet
+2. Créez votre branche
+```bash
+   git checkout -b feature/MonAmelioration
+```
+3. Commitez vos changements
+```bash
+   git commit -m "Ajout: MonAmelioration"
+```
+4. Pushez vers la branche
+```bash
+   git push origin feature/MonAmelioration
+```
+5. Ouvrez une Pull Request
