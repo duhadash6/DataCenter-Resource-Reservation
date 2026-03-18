@@ -142,8 +142,8 @@ php artisan serve
 ## Contribution
 Les contributions sont les bienvenues. Pour proposer une amélioration :
 
-** Forkez le projet
-** Créez votre branche : git checkout -b feature/MonAmelioration
-** Commitez vos changements : git commit -m 'Ajout: MonAmelioration'
-** Pushez vers la branche : git push origin feature/MonAmelioration
-** Ouvrez une Pull Request
+** Forkez le projet **
+** Créez votre branche : git checkout -b feature/MonAmelioration **
+** Commitez vos changements : git commit -m ' Ajout: MonAmelioration ' **
+** Pushez vers la branche : git push origin feature/MonAmelioration **
+** Ouvrez une Pull Request **
