@@ -1,0 +1,44 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="min-h-screen flex items-center justify-center bg-gray-100 py-8 px-4">
+    <div class="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow-sm p-8">
+        <h1 class="text-2xl font-semibold text-center text-blue-900 mb-2">Data Center Resource Reservation</h1>
+        <h2 class="text-base font-medium text-center text-gray-600 mb-6">Academic Infrastructure Access</h2>
+        <form method="POST" action="{{ route('login') }}" class="space-y-5">
+            @csrf
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required autofocus
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-blue-800 transition" />
+                <span class="text-xs text-red-600 mt-1 block">@error('email') {{ $message }} @enderror</span>
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-800 focus:border-blue-800 transition" />
+                <span class="text-xs text-red-600 mt-1 block">@error('password') {{ $message }} @enderror</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <label class="flex items-center">
+                    <input type="checkbox" name="remember" class="h-4 w-4 text-blue-800 border-gray-300 rounded focus:ring-blue-800">
+                    <span class="ml-2 text-sm text-gray-700">Remember me</span>
+                </label>
+            </div>
+            <button type="submit"
+                style="width: 100%; padding: 8px 16px; background-color: #1e3a8a; color: white; font-weight: 500; border-radius: 6px; border: none; cursor: pointer; transition: all 0.3s;">
+                Login
+            </button>
+        </form>
+        <div class="mt-5 text-center">
+            <p class="text-sm text-gray-600">
+                Don't have an account? 
+                <a href="{{ route('register') }}" class="text-blue-900 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-800 rounded">Register</a>
+            </p>
+            <p class="text-sm text-gray-600 mt-2">
+                <a href="#" class="text-blue-900 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-800 rounded">Forgot your password?</a>
+            </p>
+        </div>
+    </div>
+</div>
+@endsection
