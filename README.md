@@ -57,3 +57,93 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Description
+Plateforme web développée sous Laravel pour la gestion, la réservation et la supervision des ressources d'un datacenter (serveurs, réseaux, stockage, etc.). Elle intègre un espace multi-rôles sécurisé adapté aux besoins des utilisateurs, des responsables, des ingénieurs et des administrateurs.
+
+Fonctionnalités
+FonctionnalitéDescriptionCarte mondiale interactiveVisualisation D3.js des datacenters dans le mondeCatalogue de ressourcesConsultation en temps réel des ressources disponiblesRéservation en ligneSystème de demandes avec workflow de validationMulti-rôlesUtilisateur, Responsable, Ingénieur, AdministrateurDashboard analytiqueStatistiques, graphiques et rapports mensuels PDFRack MapVisualisation interactive des baies serveurNotificationsSystème de notifications en temps réelAuthentification sécuriséeLogin, réinitialisation de mot de passe, Magic LinkChatbot intégréAssistant virtuel de navigationMode sombre / clairThème adaptatif completQR CodeGénération de QR codes pour chaque ressourceCommand PaletteRecherche rapide inspirée de VSCode
+
+Stack technique
+
+Backend : Laravel
+Frontend : Blade, CSS, JavaScript
+Base de données : MySQL
+Librairies clés :
+
+D3.js et TopoJSON — Cartographie interactive
+Laravel DomPDF — Génération de rapports PDF
+Simple QrCode — Génération de QR codes
+Laravel Sanctum — Authentification par token API
+
+
+
+
+Installation
+bash# 1. Cloner le projet
+git clone https://github.com/s-elbourmaki/datacenter-resource-reservation.git
+cd datacenter-resource-reservation
+
+# 2. Installer les dépendances PHP
+composer install
+
+# 3. Installer les dépendances Node
+npm install
+
+# 4. Configurer l'environnement
+cp .env.example .env
+php artisan key:generate
+
+# 5. Configurer la base de données dans .env
+# DB_DATABASE=datacenter
+# DB_USERNAME=root
+# DB_PASSWORD=your_password
+
+# 6. Initialiser la base de données
+php artisan migrate --seed
+
+# 7. Compiler les assets
+npm run build
+
+# 8. Lancer le serveur
+php artisan serve
+```
+
+---
+
+**Rôles et accès**
+
+| Rôle | Accès |
+|---|---|
+| Utilisateur | Catalogue, réservation, historique, profil |
+| Responsable | Gestion des demandes, incidents et ressources |
+| Ingénieur | Dashboard technique, Rack Map |
+| Administrateur | Gestion complète, utilisateurs, logs, rapports |
+
+---
+
+**Structure du projet**
+```
+├── app/
+│   ├── Http/Controllers/   # Contrôleurs (Auth, Admin, Resource, Reservation...)
+│   └── Models/             # Modèles Eloquent
+├── database/
+│   ├── migrations/         # Schéma de base de données
+│   └── seeders/            # Données de test
+├── resources/
+│   ├── css/                # Styles par module
+│   ├── js/                 # Scripts par module (D3, chatbot, dashboard...)
+│   └── views/              # Templates Blade
+├── routes/
+│   └── web.php             # Toutes les routes de l'application
+└── public/
+    ├── images/             # Assets médias
+    └── build/              # Assets compilés (Vite)
+
+Contribution
+Les contributions sont les bienvenues. Pour proposer une amélioration :
+
+Forkez le projet
+Créez votre branche : git checkout -b feature/MonAmelioration
+Commitez vos changements : git commit -m 'Ajout: MonAmelioration'
+Pushez vers la branche : git push origin feature/MonAmelioration
+Ouvrez une Pull Request
